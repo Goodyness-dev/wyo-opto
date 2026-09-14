@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  
+  html.dark {
+    color-scheme: dark;
+    background-color: #090d16 !important;
+  }
+
+  body {
+    @apply bg-[#f4f6fe] text-[#0b0f19] antialiased overflow-x-hidden transition-colors duration-200;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  html.dark body {
+    background-color: #090d16 !important;
+    color: #f1f5f9 !important;
+  }
+
+  /* Clean tactile scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  html.dark ::-webkit-scrollbar-track {
+    background: #090d16;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+  }
+  html.dark ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+  html.dark ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+}
+
+@layer components {
+  /* Thick & Alive tactile cards */
+  .card-thick {
+    @apply bg-white dark:bg-[#101522] border-2 border-slate-200/90 dark:border-slate-800/90 rounded-3xl shadow-thick dark:shadow-thick-dark transition-all duration-300;
+  }
+
+  .card-thick-hover {
+    @apply bg-white dark:bg-[#101522] border-2 border-slate-200/90 dark:border-slate-800/90 rounded-3xl shadow-thick dark:shadow-thick-dark hover:shadow-thick-hover hover:-translate-y-1 hover:border-indigo-300 dark:hover:border-indigo-500/50 transition-all duration-300;
+  }
+
+  /* Spectrum Wave Gradient Accent */
+  .spectrum-gradient {
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 35%, #ec4899 70%, #f43f5e 100%);
+  }
+
+  .spectrum-gradient-soft {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(124, 58, 237, 0.08) 50%, rgba(244, 63, 94, 0.08) 100%);
+  }
+
+  .spectrum-text-gradient {
+    background: linear-gradient(135deg, #1d4ed8 0%, #6d28d9 45%, #db2777 85%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .dark .spectrum-text-gradient {
+    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 45%, #f472b6 85%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
