@@ -155,16 +155,16 @@ export default function DashboardOverview({ onNavigateTab, onSelectQuote, onOpen
         {/* Card 4: Pending Needs Quote (White Card with Red Accent) */}
         <div 
           onClick={() => onNavigateTab('inbox')}
-          className="bg-white border border-shop-border rounded-3xl p-6 shadow-sm hover:shadow-md transition cursor-pointer flex flex-col justify-between"
+          className="bg-white border border-indigo-100 rounded-3xl p-6 shadow-sm hover:shadow-md transition cursor-pointer flex flex-col justify-between"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold uppercase tracking-wider text-shop-red">Pending Quotes</span>
-            <div className="w-8 h-8 rounded-full border border-shop-border bg-shop-light flex items-center justify-center hover:opacity-80 transition">
-              <ArrowUpRight className="w-4 h-4 text-shop-red" />
+            <span className="text-xs font-bold uppercase tracking-wider text-indigo-600">Pending Requests</span>
+            <div className="w-8 h-8 rounded-full border border-indigo-100 bg-indigo-50 flex items-center justify-center hover:opacity-80 transition">
+              <ArrowUpRight className="w-4 h-4 text-indigo-600" />
             </div>
           </div>
           <div className="my-4">
-            <div className="text-4xl font-black font-heading text-shop-red">{stats.pending}</div>
+            <div className="text-4xl font-black font-heading text-indigo-600">{stats.pending}</div>
           </div>
           <div className="inline-flex items-center space-x-1.5 text-xs text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full w-max font-medium">
             <span>⏳ Needs Price</span>

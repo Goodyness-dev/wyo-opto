@@ -203,7 +203,7 @@ export default function QuoteDetailModal({ quote, onClose, onUpdate }) {
             onClick={() => setActiveTab('full_details')}
             className={`py-3.5 px-4 font-bold text-xs sm:text-sm border-b-2 transition flex items-center space-x-2 ${
               activeTab === 'full_details'
-                ? 'border-shop-red text-shop-red'
+                ? 'border-indigo-600 text-indigo-600'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
@@ -314,7 +314,7 @@ export default function QuoteDetailModal({ quote, onClose, onUpdate }) {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Write a custom explanation, recommendations, or deposit instructions..."
-                    className="w-full bg-slate-50 border border-slate-200 focus:border-shop-red focus:bg-white rounded-xl p-4 text-sm text-slate-900 placeholder-slate-400 outline-none leading-relaxed transition"
+                    className="w-full bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white rounded-xl p-4 text-sm text-slate-900 placeholder-slate-400 outline-none leading-relaxed transition"
                   />
                   <span className="text-[11px] text-slate-400 mt-1 block">
                     This message is prominently highlighted in the customer's quote email.
@@ -330,7 +330,7 @@ export default function QuoteDetailModal({ quote, onClose, onUpdate }) {
                   <button
                     type="submit"
                     disabled={isSendingQuote}
-                    className="w-full sm:w-auto py-3 px-6 bg-shop-red hover:bg-shop-redHover disabled:opacity-50 text-white font-bold text-xs sm:text-sm rounded-xl transition shadow-md shadow-shop-red/20 flex items-center justify-center space-x-2 active:scale-95 cursor-pointer"
+                    className="w-full sm:w-auto py-3 px-6 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-bold text-xs sm:text-sm rounded-xl transition shadow-md shadow-indigo-600/20 flex items-center justify-center space-x-2 active:scale-95 cursor-pointer"
                   >
                     {isSendingQuote ? (
                       <>
@@ -369,7 +369,7 @@ export default function QuoteDetailModal({ quote, onClose, onUpdate }) {
                       {quote.engineType && (
                         <div className="flex justify-between text-sm border-b border-slate-100 pb-2">
                           <span className="text-slate-500">Engine Type:</span>
-                          <span className="text-shop-red font-bold">{quote.engineType}</span>
+                          <span className="text-indigo-600 font-bold">{quote.engineType}</span>
                         </div>
                       )}
                     </>

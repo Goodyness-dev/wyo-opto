@@ -387,7 +387,7 @@ export default function InboxView({ onOpenFullQuote }) {
 
                     <div className={`max-w-lg rounded-2xl p-4 text-xs sm:text-sm leading-relaxed whitespace-pre-wrap ${
                       isAdmin
-                        ? 'bg-shop-red text-white rounded-tr-xs shadow-md shadow-shop-red/15'
+                        ? 'bg-indigo-600 text-white rounded-tr-xs shadow-md shadow-indigo-600/15'
                         : 'bg-white border border-slate-200 text-slate-800 rounded-tl-xs shadow-xs'
                     }`}>
                       {msg.isQuote && (

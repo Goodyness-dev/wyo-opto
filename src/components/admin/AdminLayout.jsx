@@ -38,8 +38,8 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
 
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-    { id: 'orders', label: 'Orders & Quotes', icon: ClipboardList, badge: stats.total > 0 ? stats.total : null },
-    { id: 'inbox', label: 'Customer Inbox', icon: MessageSquare, badge: stats.pending > 0 ? stats.pending : null },
+    { id: 'orders', label: 'Patient Requests', icon: ClipboardList, badge: stats.total > 0 ? stats.total : null },
+    { id: 'inbox', label: 'Patient Inbox', icon: MessageSquare, badge: stats.pending > 0 ? stats.pending : null },
   ];
 
   return (
@@ -62,7 +62,7 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
           {/* Logo Brand */}
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3 min-w-0">
-              <div className="w-10 h-10 shrink-0 rounded-2xl bg-shop-red text-white flex items-center justify-center shadow-md shadow-shop-red/30">
+              <div className="w-10 h-10 shrink-0 rounded-2xl bg-indigo-600 text-white flex items-center justify-center shadow-md shadow-indigo-600/30">
                 <Wrench className="w-5 h-5" />
               </div>
               <div className="min-w-0 flex-1">
@@ -70,7 +70,7 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
                   {BUSINESS_INFO.name}
                 </span>
                 <span className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider block">
-                  Shop Admin
+                  Practice Portal
                 </span>
               </div>
             </div>
@@ -100,7 +100,7 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
                     }}
                     className={`w-full flex items-center justify-between px-3.5 py-3 rounded-2xl text-xs sm:text-sm font-bold transition ${
                       isActive
-                        ? 'bg-shop-red text-white shadow-md shadow-shop-red/25'
+                        ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/25'
                         : 'text-slate-600 hover:bg-slate-100/80 hover:text-slate-900'
                     }`}
                   >
@@ -112,7 +112,7 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
                       <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${
                         isActive
                           ? 'bg-white/25 text-white'
-                          : 'bg-shop-light text-shop-red border border-shop-border'
+                          : 'bg-indigo-50 text-indigo-600 border border-indigo-100'
                       }`}>
                         {item.badge}
                       </span>
@@ -136,7 +136,7 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
                 }}
                 className={`w-full flex items-center space-x-3 px-3.5 py-3 rounded-2xl text-xs sm:text-sm font-bold transition ${
                   activeTab === 'settings'
-                    ? 'bg-shop-red text-white shadow-md shadow-shop-red/25'
+                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/25'
                     : 'text-slate-600 hover:bg-slate-100/80 hover:text-slate-900'
                 }`}
               >
@@ -166,7 +166,7 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
         </div>
 
         {/* Bottom Banner Card */}
-        <div className="p-4 m-4 rounded-2xl bg-gradient-to-br from-shop-red to-shop-redHover text-white space-y-2 shadow-lg shadow-shop-red/20">
+        <div className="p-4 m-4 rounded-2xl bg-gradient-to-br from-indigo-600 to-indigo-700 text-white space-y-2 shadow-lg shadow-indigo-600/20">
           <div className="flex items-center space-x-2">
             <span className="text-base">📱</span>
             <h5 className="font-heading font-black text-xs truncate">{BUSINESS_INFO.name}</h5>
@@ -203,7 +203,7 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
               <input
                 type="text"
                 placeholder="Search orders, customers, or services..."
-                className="w-full bg-[#f8fafc] border border-slate-200 focus:border-shop-red focus:bg-white rounded-2xl pl-10 pr-12 py-2 text-xs text-slate-800 placeholder-slate-400 outline-none transition"
+                className="w-full bg-[#f8fafc] border border-slate-200 focus:border-indigo-600 focus:bg-white rounded-2xl pl-10 pr-12 py-2 text-xs text-slate-800 placeholder-slate-400 outline-none transition"
               />
               <span className="hidden sm:inline-block absolute right-3 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-400 bg-white border border-slate-200 px-1.5 py-0.5 rounded shadow-2xs">
                 ⌘F
@@ -217,11 +217,11 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
             <button
               onClick={() => setActiveTab('inbox')}
               className="w-10 h-10 rounded-2xl border border-slate-200/80 hover:bg-slate-50 flex items-center justify-center text-slate-600 relative transition"
-              title="Customer Inbox"
+              title="Patient Inbox"
             >
               <Mail className="w-4 h-4" />
               {stats.pending > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-shop-red text-white text-[10px] font-bold flex items-center justify-center shadow-xs">
+                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-indigo-600 text-white text-[10px] font-bold flex items-center justify-center shadow-xs">
                   {stats.pending}
                 </span>
               )}
@@ -234,17 +234,17 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
               title="Notifications"
             >
               <Bell className="w-4 h-4" />
-              <span className="absolute 2.5 2.5 w-2 h-2 rounded-full bg-shop-red" />
+              <span className="absolute 2.5 2.5 w-2 h-2 rounded-full bg-indigo-600" />
             </button>
 
             {/* Admin Profile Card */}
             <div className="flex items-center space-x-3 pl-2 border-l border-slate-200">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-shop-red to-shop-redHover text-white font-black text-sm flex items-center justify-center shadow-sm">
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 to-indigo-700 text-white font-black text-sm flex items-center justify-center shadow-sm">
                 {getInitials(BUSINESS_INFO.owner?.name || BUSINESS_INFO.name)}
               </div>
               <div className="hidden sm:block text-left">
                 <h4 className="text-xs font-black text-slate-900 leading-tight truncate max-w-[130px]">
-                  {BUSINESS_INFO.owner?.name || 'Shop Admin'}
+                  {BUSINESS_INFO.owner?.name || 'Practice Portal'}
                 </h4>
                 <span className="text-[11px] text-slate-400 block leading-tight truncate max-w-[130px]">
                   {BUSINESS_INFO.address?.city ? `${BUSINESS_INFO.address.city}, ${BUSINESS_INFO.address.state || ''}` : 'Executive'}

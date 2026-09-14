@@ -194,11 +194,11 @@ export default function AdminSettings() {
         {/* Setup Walkthrough */}
         <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs text-slate-700 space-y-2">
           <div className="font-bold text-slate-900 flex items-center space-x-1.5 text-sm">
-            <HelpCircle className="w-4 h-4 text-shop-red" />
+            <HelpCircle className="w-4 h-4 text-indigo-600" />
             <span>How to set up Telegram alerts for {BUSINESS_INFO.name} (Takes 60 seconds):</span>
           </div>
           <ol className="list-decimal list-inside space-y-1 text-slate-600 leading-relaxed pl-1">
-            <li>Open Telegram on your phone or computer, search for <strong className="text-slate-900">@BotFather</strong>, send <code className="text-shop-red bg-shop-light px-1 py-0.5 rounded font-mono font-bold">/newbot</code> and copy your HTTP API Token.</li>
+            <li>Open Telegram on your phone or computer, search for <strong className="text-slate-900">@BotFather</strong>, send <code className="text-indigo-600 bg-indigo-50 px-1 py-0.5 rounded font-mono font-bold">/newbot</code> and copy your HTTP API Token.</li>
             <li>Search for <strong className="text-slate-900">@userinfobot</strong> on Telegram and tap Start to see your numeric <strong className="text-slate-900">Id</strong> (Chat ID).</li>
             <li>Paste your Token and Chat ID below, click <strong className="text-slate-900">Test Connection</strong>, and verify you get the test ping on your phone!</li>
           </ol>
@@ -319,21 +319,21 @@ export default function AdminSettings() {
               value={settings.emailjs_template_id_quote || ''}
               onChange={(e) => setSettings({ ...settings, emailjs_template_id_quote: e.target.value })}
               placeholder="e.g. template_customer_quote"
-              className="w-full bg-slate-50 border border-slate-200 focus:border-shop-red focus:bg-white rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 outline-none font-mono transition"
+              className="w-full bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 outline-none font-mono transition"
             />
             <span className="text-[11px] text-slate-400 mt-1 block">Used when clicking "Send Quote to Customer".</span>
           </div>
 
           <div>
             <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-              New Order Notification Template ID
+              New Patient Request Notification Template ID
             </label>
             <input
               type="text"
               value={settings.emailjs_template_id_notify || ''}
               onChange={(e) => setSettings({ ...settings, emailjs_template_id_notify: e.target.value })}
               placeholder="e.g. template_admin_alert"
-              className="w-full bg-slate-50 border border-slate-200 focus:border-shop-red focus:bg-white rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 outline-none font-mono transition"
+              className="w-full bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 outline-none font-mono transition"
             />
             <span className="text-[11px] text-slate-400 mt-1 block">Alerts shop email when customer submits a quote request.</span>
           </div>
@@ -496,7 +496,7 @@ export default function AdminSettings() {
               value={oldPassword}
               onChange={(e) => setOldPassword(e.target.value)}
               placeholder="Current admin password"
-              className="w-full bg-slate-50 border border-slate-200 focus:border-shop-red focus:bg-white rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition"
+              className="w-full bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition"
               required
             />
           </div>

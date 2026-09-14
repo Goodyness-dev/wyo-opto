@@ -56,7 +56,7 @@ export default function NewOrderModal({ isOpen, onClose, onCreated }) {
       >
         <div className="flex items-center justify-between border-b border-slate-200 pb-4">
           <div className="flex items-center space-x-2.5">
-            <div className="w-9 h-9 rounded-xl bg-shop-light border border-shop-border flex items-center justify-center text-shop-red">
+            <div className="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
               <Plus className="w-4 h-4" />
             </div>
             <h2 className="text-xl font-black font-heading text-slate-900">Record Manual / Walk-In Quote</h2>
@@ -117,7 +117,7 @@ export default function NewOrderModal({ isOpen, onClose, onCreated }) {
                 value={formData.make}
                 onChange={(e) => setFormData({ ...formData, make: e.target.value })}
                 placeholder="e.g. Ford / Residential / Commercial"
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 outline-none focus:border-shop-red focus:bg-white"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-600 focus:bg-white"
               />
             </div>
             <div>
@@ -127,7 +127,7 @@ export default function NewOrderModal({ isOpen, onClose, onCreated }) {
                 value={formData.modelAndYear}
                 onChange={(e) => setFormData({ ...formData, modelAndYear: e.target.value })}
                 placeholder="e.g. 2018 F-250 or Main Level Bath"
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 outline-none focus:border-shop-red focus:bg-white"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-600 focus:bg-white"
               />
             </div>
           </div>
@@ -138,7 +138,7 @@ export default function NewOrderModal({ isOpen, onClose, onCreated }) {
               <select
                 value={formData.serviceCategory}
                 onChange={(e) => setFormData({ ...formData, serviceCategory: e.target.value })}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 outline-none focus:border-shop-red focus:bg-white"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-600 focus:bg-white"
               >
                 <option value="Diagnosis and inspection">Diagnosis & Inspection</option>
                 <option value="Maintenance">Maintenance</option>
@@ -153,7 +153,7 @@ export default function NewOrderModal({ isOpen, onClose, onCreated }) {
                 value={formData.detailedService}
                 onChange={(e) => setFormData({ ...formData, detailedService: e.target.value })}
                 placeholder="e.g. Brakes, Pipe Repair"
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 outline-none focus:border-shop-red focus:bg-white"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-600 focus:bg-white"
               />
             </div>
           </div>
@@ -165,7 +165,7 @@ export default function NewOrderModal({ isOpen, onClose, onCreated }) {
               value={formData.details}
               onChange={(e) => setFormData({ ...formData, details: e.target.value })}
               placeholder="Walk-in notes, customer phone notes..."
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm text-slate-900 outline-none focus:border-shop-red focus:bg-white"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm text-slate-900 outline-none focus:border-indigo-600 focus:bg-white"
             />
           </div>
 
@@ -180,7 +180,7 @@ export default function NewOrderModal({ isOpen, onClose, onCreated }) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-5 py-2.5 rounded-xl bg-shop-red hover:bg-shop-redHover text-white text-xs font-bold transition flex items-center space-x-1.5 shadow-md shadow-shop-red/20 active:scale-95 cursor-pointer"
+              className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition flex items-center space-x-1.5 shadow-md shadow-indigo-600/20 active:scale-95 cursor-pointer"
             >
               {isSubmitting ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Check className="w-3.5 h-3.5" />}
               <span>Save to Orders</span>

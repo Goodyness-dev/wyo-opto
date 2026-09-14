@@ -36,8 +36,8 @@ export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
   return (
     <div className="min-h-screen bg-[#f4f6f8] text-slate-900 flex flex-col justify-center items-center px-4 py-12 relative overflow-hidden font-sans">
       {/* Background Subtle Accent Gradients */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-shop-red/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -top-20 -right-20 w-80 h-80 bg-shop-red/5 rounded-full blur-2xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-20 -right-20 w-80 h-80 bg-indigo-600/5 rounded-full blur-2xl pointer-events-none" />
 
       {/* Back to Site Button */}
       <div className="w-full max-w-md mb-6 z-10">
@@ -54,17 +54,17 @@ export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
       <div className="w-full max-w-md bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-10 shadow-xl relative z-10">
         {/* Brand Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-shop-red text-white mb-4 shadow-lg shadow-shop-red/30">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-600 text-white mb-4 shadow-lg shadow-indigo-600/30">
             <Wrench className="w-7 h-7" />
           </div>
           <h1 className="text-2xl sm:text-3xl font-black font-heading tracking-tight text-slate-900">
             {BUSINESS_INFO.name}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1.5 font-medium">
-            Executive Dashboard & Order Dispatch
+            Clinical Practice Portal & Patient Triage
           </p>
           <div className="inline-flex items-center space-x-1.5 bg-slate-50 border border-slate-200 px-3 py-1 rounded-full mt-3 text-[11px] text-slate-600">
-            <ShieldCheck className="w-3.5 h-3.5 text-shop-red" />
+            <ShieldCheck className="w-3.5 h-3.5 text-indigo-600" />
             <span className="font-semibold">Protected Management Suite</span>
           </div>
         </div>
@@ -92,7 +92,7 @@ export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter password..."
-                className="w-full bg-slate-50 border border-slate-200 focus:border-shop-red focus:bg-white rounded-xl pl-11 pr-11 py-3 text-sm text-slate-900 placeholder-slate-400 transition outline-none"
+                className="w-full bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white rounded-xl pl-11 pr-11 py-3 text-sm text-slate-900 placeholder-slate-400 transition outline-none"
                 autoFocus
                 required
               />
@@ -109,7 +109,7 @@ export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-3.5 px-4 bg-shop-red hover:bg-shop-redHover disabled:opacity-50 text-white font-bold text-sm rounded-xl transition shadow-md shadow-shop-red/25 flex items-center justify-center space-x-2 active:scale-[0.99] cursor-pointer"
+            className="w-full py-3.5 px-4 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-bold text-sm rounded-xl transition shadow-md shadow-indigo-600/25 flex items-center justify-center space-x-2 active:scale-[0.99] cursor-pointer"
           >
             {isLoading ? (
               <>
