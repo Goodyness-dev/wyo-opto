@@ -1,42 +1,41 @@
 import React from 'react';
 import { BUSINESS_INFO } from '../../data/businessData';
-import { StarIcon, QuoteIcon, CheckIcon } from '../common/Icons';
+import { StarIcon } from '../common/Icons';
 
 export default function ReviewsSection({ onOpenWizard }) {
   return (
-    <section id="reviews" className="py-20 sm:py-28 bg-white dark:bg-[#0d121e] transition-colors" aria-labelledby="reviews-heading">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="reviews" className="py-16 sm:py-24 bg-[#f4f1ea] dark:bg-[#111713] transition-colors" aria-labelledby="reviews-heading">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100/80 dark:bg-amber-950/60 text-amber-900 dark:text-amber-300 text-xs font-bold uppercase tracking-wider">
+        <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6c8572]/15 text-[#3b5141] dark:text-[#a7c1ab] text-xs font-bold uppercase tracking-wider">
             <StarIcon className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
             <span>4.9 Star Aggregate Rating</span>
           </div>
 
-          <h2 id="reviews-heading" className="text-3xl sm:text-5xl font-black font-heading text-slate-900 dark:text-white tracking-tight leading-tight">
-            Trusted by Generations of <br className="hidden sm:inline" />
-            <span className="spectrum-text-gradient">Berks & Lebanon County Families</span>
+          <h2 id="reviews-heading" className="text-3xl sm:text-4xl font-extrabold font-heading text-[#1f2b22] dark:text-white tracking-tight">
+            Trusted by Generations of Berks & Lebanon Families
           </h2>
 
           <div className="flex items-center justify-center gap-2.5 pt-1">
             <div className="flex text-amber-400">
               {'★★★★★'.split('').map((_, i) => (
-                <StarIcon key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                <StarIcon key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
               ))}
             </div>
-            <span className="text-slate-700 dark:text-slate-300 text-sm sm:text-base font-bold">
+            <span className="text-[#3b5141] dark:text-[#cad8cd] text-xs sm:text-sm font-bold">
               680+ Verified Patient Reviews Across 3 Offices
             </span>
           </div>
         </div>
 
         {/* Review Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {BUSINESS_INFO.reviews.map((rev) => (
             <article
               key={rev.id}
-              className="card-thick-hover p-7 sm:p-9 flex flex-col justify-between"
+              className="card-thick-hover p-6 sm:p-8 flex flex-col justify-between"
             >
               <div>
                 <div className="flex justify-between items-center mb-4">
@@ -45,34 +44,32 @@ export default function ReviewsSection({ onOpenWizard }) {
                       <StarIcon key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                  <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#6c8572]/10 text-[#3b5141] dark:text-[#a7c1ab] border border-[#6c8572]/20">
                     {rev.badge}
                   </span>
                 </div>
 
-                <div className="relative mb-6">
-                  <p className="text-slate-700 dark:text-slate-300 text-base sm:text-lg leading-relaxed italic">
-                    "{rev.text}"
-                  </p>
-                </div>
+                <p className="text-[#253629] dark:text-[#cad8cd] text-sm sm:text-base leading-relaxed italic mb-6">
+                  "{rev.text}"
+                </p>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center text-xs sm:text-sm">
+              <div className="pt-4 border-t border-[#e6dfd3] dark:border-[#253229] flex justify-between items-center text-xs">
                 <div>
-                  <h4 className="font-bold text-slate-900 dark:text-white text-base">{rev.author}</h4>
-                  <span className="text-slate-500 dark:text-slate-400">{rev.location}</span>
+                  <h4 className="font-bold text-[#1f2b22] dark:text-white text-sm">{rev.author}</h4>
+                  <span className="text-[#6c8572] dark:text-[#a7c1ab]">{rev.location}</span>
                 </div>
-                <span className="text-slate-400">{rev.date}</span>
+                <span className="text-[#889c8d]">{rev.date}</span>
               </div>
             </article>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="mt-14 text-center">
+        <div className="text-center pt-4">
           <button
             onClick={() => onOpenWizard()}
-            className="px-8 py-4 rounded-full bg-[#0b0f19] hover:bg-indigo-950 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-[#0b0f19] font-bold text-base shadow-lg transition active:scale-95"
+            className="btn-terracotta px-8 py-3.5 text-sm"
           >
             Experience the Wyomissing Optometric Difference
           </button>

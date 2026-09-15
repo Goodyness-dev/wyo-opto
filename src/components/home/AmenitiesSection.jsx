@@ -15,12 +15,12 @@ import {
 export default function AmenitiesSection({ onOpenWizard }) {
   const getIcon = (name) => {
     switch(name) {
-      case 'MicroscopeIcon': return <MicroscopeIcon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />;
-      case 'AlertCircleIcon': return <AlertCircleIcon className="w-6 h-6 text-rose-600 dark:text-rose-400" />;
-      case 'MapPinIcon': return <MapPinIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />;
-      case 'ShieldCheckIcon': return <ShieldCheckIcon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />;
-      case 'GlassesIcon': return <GlassesIcon className="w-6 h-6 text-purple-600 dark:text-purple-400" />;
-      default: return <SparklesIcon className="w-6 h-6 text-amber-500" />;
+      case 'MicroscopeIcon': return <MicroscopeIcon className="w-5 h-5 text-[#5a7260]" />;
+      case 'AlertCircleIcon': return <AlertCircleIcon className="w-5 h-5 text-[#cb6336]" />;
+      case 'MapPinIcon': return <MapPinIcon className="w-5 h-5 text-[#5a7260]" />;
+      case 'ShieldCheckIcon': return <ShieldCheckIcon className="w-5 h-5 text-[#5a7260]" />;
+      case 'GlassesIcon': return <GlassesIcon className="w-5 h-5 text-[#5a7260]" />;
+      default: return <SparklesIcon className="w-5 h-5 text-[#cb6336]" />;
     }
   };
 
@@ -32,28 +32,27 @@ export default function AmenitiesSection({ onOpenWizard }) {
   };
 
   return (
-    <section id="amenities" className="py-20 sm:py-28 bg-[#f4f6fe] dark:bg-[#090d16] transition-colors" aria-labelledby="amenities-heading">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="amenities" className="py-16 sm:py-24 bg-[#f4f1ea] dark:bg-[#111713] transition-colors" aria-labelledby="amenities-heading">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-100/80 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider">
+        <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6c8572]/15 text-[#3b5141] dark:text-[#a7c1ab] text-xs font-bold uppercase tracking-wider">
             <MicroscopeIcon className="w-3.5 h-3.5" />
-            <span>State-of-the-Art Diagnostic Suite</span>
+            <span>Diagnostic Suite & Patient Amenities</span>
           </div>
 
-          <h2 id="amenities-heading" className="text-3xl sm:text-5xl font-black font-heading text-slate-900 dark:text-white tracking-tight leading-tight">
-            Advanced Diagnostic Technology & <br className="hidden sm:inline" />
-            Patient Comfort Conveniences
+          <h2 id="amenities-heading" className="text-3xl sm:text-4xl font-extrabold font-heading text-[#1f2b22] dark:text-white tracking-tight">
+            Advanced Diagnostic Technology & Patient Conveniences
           </h2>
 
-          <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#526356] dark:text-[#cad8cd] leading-relaxed">
             {AMENITIES.subtitle}
           </p>
         </div>
 
         {/* Features Bento Grid with Visual Media */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {AMENITIES.features.map((feat) => {
             const featImg = AMENITY_IMAGE_MAP[feat.id];
             return (
@@ -63,7 +62,7 @@ export default function AmenitiesSection({ onOpenWizard }) {
               >
                 <div>
                   {featImg && (
-                    <div className="relative h-44 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+                    <div className="relative h-44 w-full overflow-hidden bg-[#e3ece4] dark:bg-[#1a251e]">
                       <img 
                         src={featImg} 
                         alt={feat.title}
@@ -71,31 +70,31 @@ export default function AmenitiesSection({ onOpenWizard }) {
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                      <div className="absolute top-3 left-3 w-10 h-10 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur border border-white/20 flex items-center justify-center shadow-md">
+                      <div className="absolute top-3 left-3 w-9 h-9 rounded-xl bg-white/95 dark:bg-[#17201a]/95 backdrop-blur border border-white/20 flex items-center justify-center shadow-xs">
                         {getIcon(feat.icon)}
                       </div>
                     </div>
                   )}
 
-                  <div className="p-7 sm:p-8">
+                  <div className="p-6">
                     {!featImg && (
-                      <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                      <div className="w-10 h-10 rounded-xl bg-[#6c8572]/15 border border-[#6c8572]/20 flex items-center justify-center mb-4">
                         {getIcon(feat.icon)}
                       </div>
                     )}
-                    <h3 className="font-heading font-bold text-xl text-slate-900 dark:text-white mb-2.5 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    <h3 className="font-heading font-bold text-lg text-[#1f2b22] dark:text-white mb-2 group-hover:text-[#cb6336] transition-colors">
                       {feat.title}
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                    <p className="text-xs text-[#526356] dark:text-[#cad8cd] leading-relaxed">
                       {feat.description}
                     </p>
                   </div>
                 </div>
 
-                <div className="px-7 pb-6 pt-0">
+                <div className="px-6 pb-5 pt-0">
                   <button 
                     onClick={() => onOpenWizard('Amenity Inquiry', feat.title)}
-                    className="text-xs font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5 group-hover:translate-x-1 transition-transform"
+                    className="text-xs font-bold text-[#5a7260] dark:text-[#a7c1ab] flex items-center gap-1.5 group-hover:translate-x-1 transition-transform"
                   >
                     <span>Learn more</span>
                     <ArrowRightIcon className="w-3.5 h-3.5" />
@@ -107,34 +106,32 @@ export default function AmenitiesSection({ onOpenWizard }) {
         </div>
 
         {/* Insurance & Direct Billing Banner */}
-        <div className="card-thick p-8 sm:p-12 bg-white dark:bg-[#101522] border-2 border-indigo-100 dark:border-slate-800 relative overflow-hidden">
-          <div className="absolute -top-12 -right-12 w-64 h-64 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none" />
-          
-          <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-            <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white">
-              Direct Insurance Verification & Financing
+        <div className="card-thick p-8 sm:p-10 bg-white dark:bg-[#17201a] border-2 border-[#e6dfd3] dark:border-[#253229]">
+          <div className="text-center max-w-2xl mx-auto mb-6 space-y-2">
+            <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-[#1f2b22] dark:text-white">
+              Direct Vision & Medical Insurance Verification
             </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
+            <p className="text-xs text-[#526356] dark:text-[#cad8cd]">
               We coordinate directly with major vision and medical carriers so you can maximize your annual benefits.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 mb-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
             {AMENITIES.insurancePlans.map((plan, idx) => (
               <div 
                 key={idx}
-                className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 flex items-center gap-2 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:border-indigo-300 transition"
+                className="p-3 rounded-xl bg-[#f4f1ea] dark:bg-[#111713] border border-[#e4ded4] dark:border-[#253229] flex items-center gap-2 text-xs font-semibold text-[#1f2b22] dark:text-white"
               >
-                <CheckIcon className="w-4 h-4 text-emerald-500 shrink-0" />
+                <CheckIcon className="w-3.5 h-3.5 text-[#5a7260] shrink-0" />
                 <span className="truncate">{plan}</span>
               </div>
             ))}
           </div>
 
-          <div className="text-center pt-2">
+          <div className="text-center">
             <button
               onClick={() => onOpenWizard('Insurance Check')}
-              className="btn-shimmer px-7 py-3.5 rounded-full bg-[#0b0f19] hover:bg-indigo-950 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-[#0b0f19] font-bold text-sm shadow-md transition active:scale-95"
+              className="btn-terracotta px-7 py-3 text-xs sm:text-sm shadow-sm"
             >
               Verify Your Vision Benefits Online
             </button>

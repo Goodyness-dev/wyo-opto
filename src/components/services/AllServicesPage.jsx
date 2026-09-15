@@ -34,56 +34,56 @@ export default function AllServicesPage({ onOpenWizard, onBackToHome }) {
 
   const getServiceIcon = (iconName) => {
     switch(iconName) {
-      case 'EyeIcon': return <EyeIcon className="w-5 h-5 text-blue-600 dark:text-blue-400" />;
-      case 'GlassesIcon': return <GlassesIcon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />;
-      case 'SparklesIcon': return <SparklesIcon className="w-5 h-5 text-amber-500" />;
-      case 'AlertCircleIcon': return <AlertCircleIcon className="w-5 h-5 text-rose-600 dark:text-rose-400" />;
-      case 'HeartPulseIcon': return <HeartPulseIcon className="w-5 h-5 text-pink-600 dark:text-pink-400" />;
-      default: return <ShieldCheckIcon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />;
+      case 'EyeIcon': return <EyeIcon className="w-5 h-5 text-[#5a7260]" />;
+      case 'GlassesIcon': return <GlassesIcon className="w-5 h-5 text-[#5a7260]" />;
+      case 'SparklesIcon': return <SparklesIcon className="w-5 h-5 text-[#cb6336]" />;
+      case 'AlertCircleIcon': return <AlertCircleIcon className="w-5 h-5 text-[#cb6336]" />;
+      case 'HeartPulseIcon': return <HeartPulseIcon className="w-5 h-5 text-[#cb6336]" />;
+      default: return <ShieldCheckIcon className="w-5 h-5 text-[#5a7260]" />;
     }
   };
 
   return (
-    <div className="py-12 sm:py-16 bg-[#f4f6fe] dark:bg-[#090d16] min-h-screen">
+    <div className="py-12 sm:py-16 bg-[#f4f1ea] dark:bg-[#111713] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Back navigation */}
         <button
           onClick={onBackToHome}
-          className="inline-flex items-center gap-2 text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 mb-8 transition group"
+          className="inline-flex items-center gap-2 text-sm font-bold text-[#2b3d30] dark:text-[#cad8cd] hover:text-[#cb6336] mb-8 transition group"
         >
-          <div className="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center group-hover:-translate-x-1 transition-transform">
+          <div className="w-8 h-8 rounded-full bg-white dark:bg-[#17201a] border border-[#d8d1c4] dark:border-[#253229] flex items-center justify-center group-hover:-translate-x-1 transition-transform">
             <ArrowLeftIcon className="w-4 h-4" />
           </div>
           <span>Back to Home</span>
         </button>
 
         {/* Page Header */}
-        <div className="max-w-3xl mb-12 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100/80 dark:bg-indigo-950/60 text-indigo-800 dark:text-indigo-300 text-xs font-bold uppercase tracking-wider">
+        <div className="max-w-3xl mb-10 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#6c8572]/15 text-[#3b5141] dark:text-[#a7c1ab] text-xs font-bold uppercase tracking-wider">
             <EyeIcon className="w-3.5 h-3.5" />
             <span>Complete Clinical Directory</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black font-heading text-slate-900 dark:text-white tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#1f2b22] dark:text-white tracking-tight">
             Optometric Care & Diagnostic Procedures
           </h1>
 
-          <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed">
-            Explore our specialized clinical eye care capabilities. Whether you require standard preventive exams, advanced dark adaptation retinal scans, or pediatric myopia therapy, select an area below to request care.
+          <p className="text-xs sm:text-sm text-[#526356] dark:text-[#cad8cd] leading-relaxed">
+            Explore our specialized clinical eye care capabilities across Wyomissing, Douglassville, and Myerstown. Select any specialty to request an appointment.
           </p>
         </div>
 
         {/* Search & Filter Bar */}
-        <div className="card-thick p-4 sm:p-6 mb-10 space-y-4">
-          <div className="flex flex-col md:flex-row gap-4">
+        <div className="card-thick p-4 sm:p-5 mb-8 space-y-4">
+          <div className="flex flex-col md:flex-row gap-3">
             <div className="flex-1 relative">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search procedures, symptoms (e.g. macular, dry eye, glasses, ortho-k)..."
-                className="w-full px-4 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition"
+                className="w-full px-4 py-2.5 rounded-2xl bg-[#f4f1ea] dark:bg-[#111713] border border-[#d8d1c4] dark:border-[#253229] text-xs sm:text-sm text-[#1f2b22] dark:text-white focus:outline-none focus:border-[#6c8572]"
               />
             </div>
 
@@ -92,10 +92,10 @@ export default function AllServicesPage({ onOpenWizard, onBackToHome }) {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
                     selectedCategory === cat
-                      ? 'bg-[#0b0f19] dark:bg-white text-white dark:text-[#0b0f19] shadow-sm scale-105'
-                      : 'bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 hover:bg-slate-200'
+                      ? 'bg-[#1f2b22] dark:bg-white text-white dark:text-[#1f2b22] shadow-xs scale-105'
+                      : 'bg-[#f4f1ea] dark:bg-[#111713] text-[#2b3d30] dark:text-[#cad8cd] border border-[#e4ded4] dark:border-[#253229] hover:border-[#6c8572]'
                   }`}
                 >
                   {cat}
@@ -106,7 +106,7 @@ export default function AllServicesPage({ onOpenWizard, onBackToHome }) {
         </div>
 
         {/* Procedures Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {filteredServices.map(service => (
             <article
               key={service.id}
@@ -116,7 +116,7 @@ export default function AllServicesPage({ onOpenWizard, onBackToHome }) {
               <div>
                 {/* Visual Image Header */}
                 {service.image && (
-                  <div className="relative h-44 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+                  <div className="relative h-44 w-full overflow-hidden bg-[#e3ece4] dark:bg-[#1a251e]">
                     <img 
                       src={service.image} 
                       alt={service.title}
@@ -126,36 +126,36 @@ export default function AllServicesPage({ onOpenWizard, onBackToHome }) {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
                     
                     <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                      <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/90 dark:bg-black/80 backdrop-blur text-slate-900 dark:text-white shadow-sm border border-white/20">
+                      <span className="px-3 py-1 rounded-full text-[10px] font-bold bg-white/95 dark:bg-[#17201a]/95 text-[#1f2b22] dark:text-white shadow-xs">
                         {service.badge}
                       </span>
-                      <div className="w-8 h-8 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur border border-white/20 flex items-center justify-center shadow-sm">
+                      <div className="w-8 h-8 rounded-xl bg-white/95 dark:bg-[#17201a]/95 flex items-center justify-center shadow-xs">
                         {getServiceIcon(service.icon)}
                       </div>
                     </div>
                   </div>
                 )}
 
-                <div className="p-6">
-                  <h2 className="text-xl font-bold font-heading text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors mb-2.5">
+                <div className="p-5">
+                  <h2 className="text-lg font-bold font-heading text-[#1f2b22] dark:text-white group-hover:text-[#cb6336] transition-colors mb-2">
                     {service.title}
                   </h2>
 
-                  <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                  <p className="text-[#526356] dark:text-[#cad8cd] text-xs leading-relaxed mb-4">
                     {service.shortDesc}
                   </p>
 
-                  <div className="bg-slate-50 dark:bg-slate-900/50 p-3 rounded-2xl border border-slate-100 dark:border-slate-800 mb-4">
-                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">Ideal Candidates:</p>
-                    <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                  <div className="bg-[#f4f1ea] dark:bg-[#111713] p-3 rounded-2xl border border-[#e4ded4] dark:border-[#253229] mb-4">
+                    <p className="text-[10px] font-bold text-[#6c8572] dark:text-[#a7c1ab] uppercase tracking-wider mb-1">Ideal For:</p>
+                    <p className="text-xs text-[#2b3d30] dark:text-[#cad8cd] leading-relaxed">
                       {service.idealFor}
                     </p>
                   </div>
 
-                  <ul className="space-y-1.5 mb-4">
+                  <ul className="space-y-1 mb-4">
                     {service.keyBenefits.slice(0, 3).map((benefit, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
-                        <CheckIcon className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                      <li key={idx} className="flex items-start gap-2 text-xs text-[#526356] dark:text-[#cad8cd]">
+                        <CheckIcon className="w-3.5 h-3.5 text-[#5a7260] shrink-0 mt-0.5" />
                         <span>{benefit}</span>
                       </li>
                     ))}
@@ -163,8 +163,8 @@ export default function AllServicesPage({ onOpenWizard, onBackToHome }) {
                 </div>
               </div>
 
-              <div className="px-6 pb-6 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold">
-                <span className="flex items-center gap-1.5 text-slate-500">
+              <div className="px-5 pb-5 pt-3 border-t border-[#e6dfd3] dark:border-[#253229] flex items-center justify-between text-xs font-bold">
+                <span className="flex items-center gap-1.5 text-[#7a8f80]">
                   <ClockIcon className="w-4 h-4" />
                   {service.duration}
                 </span>
@@ -174,7 +174,7 @@ export default function AllServicesPage({ onOpenWizard, onBackToHome }) {
                     e.stopPropagation();
                     onOpenWizard(service.category, service.title);
                   }}
-                  className="btn-shimmer px-4 py-2 rounded-full bg-[#0b0f19] dark:bg-white text-white dark:text-[#0b0f19] hover:opacity-90 transition flex items-center gap-1.5 shadow-sm"
+                  className="btn-terracotta px-4 py-2 text-xs flex items-center gap-1.5 shadow-xs"
                 >
                   <span>Book Visit</span>
                   <ArrowRightIcon className="w-3.5 h-3.5" />
@@ -186,23 +186,23 @@ export default function AllServicesPage({ onOpenWizard, onBackToHome }) {
 
         {/* Bottom Contact Help */}
         <div className="card-thick p-8 text-center space-y-4 max-w-2xl mx-auto">
-          <h3 className="font-heading font-extrabold text-xl text-slate-900 dark:text-white">
+          <h3 className="font-heading font-extrabold text-xl text-[#1f2b22] dark:text-white">
             Not sure which exam or appointment you need?
           </h3>
-          <p className="text-sm text-slate-600 dark:text-slate-400">
+          <p className="text-xs text-[#526356] dark:text-[#cad8cd]">
             Our patient coordinators are happy to assist you in matching with the right optometrist across our Wyomissing, Douglassville, or Myerstown offices.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <a
               href="tel:6103743134"
-              className="btn-shimmer px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-md"
+              className="btn-sage px-6 py-2.5 text-xs flex items-center gap-2"
             >
               <PhoneIcon className="w-4 h-4" />
               <span>Call (610) 374-3134</span>
             </a>
             <button
               onClick={() => onOpenWizard()}
-              className="btn-shimmer px-6 py-3 rounded-full bg-[#0b0f19] dark:bg-white text-white dark:text-[#0b0f19] font-bold text-xs shadow-md"
+              className="btn-terracotta px-6 py-2.5 text-xs"
             >
               General Appointment Request
             </button>

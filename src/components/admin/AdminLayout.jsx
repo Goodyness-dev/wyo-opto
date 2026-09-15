@@ -43,7 +43,7 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f4f6f8] text-slate-900 font-sans flex antialiased">
+    <div className="min-h-screen bg-[#f4f1ea] text-slate-900 font-sans flex antialiased">
       {/* ------------------------------------------------------------- */}
       {/* LEFT SIDEBAR (Desktop & Mobile Drawer)                        */}
       {/* ------------------------------------------------------------- */}
@@ -62,8 +62,8 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
           {/* Logo Brand */}
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3 min-w-0">
-              <div className="w-10 h-10 shrink-0 rounded-2xl bg-indigo-600 text-white flex items-center justify-center shadow-md shadow-indigo-600/30">
-                <Wrench className="w-5 h-5" />
+              <div className="w-10 h-10 shrink-0 rounded-2xl bg-[#6c8572] text-white flex items-center justify-center shadow-md shadow-[#6c8572]/20">
+                <ShieldCheck className="w-5 h-5" />
               </div>
               <div className="min-w-0 flex-1">
                 <span className="font-heading font-black text-base tracking-tight text-slate-900 block leading-tight truncate" title={BUSINESS_INFO.name}>
@@ -100,7 +100,7 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
                     }}
                     className={`w-full flex items-center justify-between px-3.5 py-3 rounded-2xl text-xs sm:text-sm font-bold transition ${
                       isActive
-                        ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/25'
+                        ? 'bg-[#6c8572] text-white shadow-md shadow-[#6c8572]/20'
                         : 'text-slate-600 hover:bg-slate-100/80 hover:text-slate-900'
                     }`}
                   >
@@ -112,7 +112,7 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
                       <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${
                         isActive
                           ? 'bg-white/25 text-white'
-                          : 'bg-indigo-50 text-indigo-600 border border-indigo-100'
+                          : 'bg-indigo-50 text-[#6c8572] border border-[#e4ded4]'
                       }`}>
                         {item.badge}
                       </span>
@@ -136,7 +136,7 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
                 }}
                 className={`w-full flex items-center space-x-3 px-3.5 py-3 rounded-2xl text-xs sm:text-sm font-bold transition ${
                   activeTab === 'settings'
-                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/25'
+                    ? 'bg-[#6c8572] text-white shadow-md shadow-[#6c8572]/20'
                     : 'text-slate-600 hover:bg-slate-100/80 hover:text-slate-900'
                 }`}
               >
@@ -166,7 +166,7 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
         </div>
 
         {/* Bottom Banner Card */}
-        <div className="p-4 m-4 rounded-2xl bg-gradient-to-br from-indigo-600 to-indigo-700 text-white space-y-2 shadow-lg shadow-indigo-600/20">
+        <div className="p-4 m-4 rounded-2xl bg-gradient-to-br from-[#6c8572] to-[#5a7260] text-white space-y-2 shadow-lg shadow-[#6c8572]/20">
           <div className="flex items-center space-x-2">
             <span className="text-base">📱</span>
             <h5 className="font-heading font-black text-xs truncate">{BUSINESS_INFO.name}</h5>
@@ -203,7 +203,7 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
               <input
                 type="text"
                 placeholder="Search orders, customers, or services..."
-                className="w-full bg-[#f8fafc] border border-slate-200 focus:border-indigo-600 focus:bg-white rounded-2xl pl-10 pr-12 py-2 text-xs text-slate-800 placeholder-slate-400 outline-none transition"
+                className="w-full bg-[#f8fafc] border border-slate-200 focus:border-[#6c8572] focus:bg-white rounded-2xl pl-10 pr-12 py-2 text-xs text-slate-800 placeholder-slate-400 outline-none transition"
               />
               <span className="hidden sm:inline-block absolute right-3 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-400 bg-white border border-slate-200 px-1.5 py-0.5 rounded shadow-2xs">
                 ⌘F
@@ -221,7 +221,7 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
             >
               <Mail className="w-4 h-4" />
               {stats.pending > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-indigo-600 text-white text-[10px] font-bold flex items-center justify-center shadow-xs">
+                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#6c8572] text-white text-[10px] font-bold flex items-center justify-center shadow-xs">
                   {stats.pending}
                 </span>
               )}
@@ -234,12 +234,12 @@ export default function AdminLayout({ user, onLogout, onBackToSite }) {
               title="Notifications"
             >
               <Bell className="w-4 h-4" />
-              <span className="absolute 2.5 2.5 w-2 h-2 rounded-full bg-indigo-600" />
+              <span className="absolute 2.5 2.5 w-2 h-2 rounded-full bg-[#6c8572]" />
             </button>
 
             {/* Admin Profile Card */}
             <div className="flex items-center space-x-3 pl-2 border-l border-slate-200">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 to-indigo-700 text-white font-black text-sm flex items-center justify-center shadow-sm">
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#6c8572] to-[#5a7260] text-white font-black text-sm flex items-center justify-center shadow-sm">
                 {getInitials(BUSINESS_INFO.owner?.name || BUSINESS_INFO.name)}
               </div>
               <div className="hidden sm:block text-left">

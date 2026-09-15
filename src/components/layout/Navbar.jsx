@@ -6,10 +6,7 @@ import {
   XIcon, 
   SunIcon, 
   MoonIcon, 
-  MapPinIcon, 
   ChevronDownIcon, 
-  EyeIcon, 
-  AlertCircleIcon,
   CalendarIcon
 } from '../common/Icons';
 
@@ -53,33 +50,33 @@ export default function Navbar({ onOpenWizard, currentPage = 'home', onNavigate,
   };
 
   const navLinks = [
-    { name: 'Services & Care', target: '#services' },
-    { name: 'Doctors', target: '#doctors' },
+    { name: 'Specialties', target: '#services' },
+    { name: 'Our Doctors', target: '#doctors' },
     { name: 'Technology', target: '#amenities' },
-    { name: '3 Locations', target: '#locations' },
-    { name: 'Patient Reviews', target: '#reviews' },
+    { name: 'Locations', target: '#locations' },
+    { name: 'Reviews', target: '#reviews' },
   ];
 
   return (
     <header 
       className={`sticky top-0 z-40 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 dark:bg-[#090d16]/95 backdrop-blur-md shadow-md border-b border-slate-200/80 dark:border-slate-800' 
-          : 'bg-[#f4f6fe]/90 dark:bg-[#090d16]/90 backdrop-blur-sm border-b border-indigo-100/80 dark:border-slate-800/60'
+          ? 'bg-[#f4f1ea]/95 dark:bg-[#111713]/95 backdrop-blur-md shadow-sm border-b border-[#e4ded4] dark:border-[#233027]' 
+          : 'bg-[#f4f1ea]/90 dark:bg-[#111713]/90 backdrop-blur-sm'
       }`}
       role="banner"
     >
-      {/* Top emergency announcement bar */}
-      <div className="bg-[#0b0f19] dark:bg-[#060910] text-white text-xs py-1.5 px-4">
+      {/* Top announcement strip */}
+      <div className="bg-[#243328] dark:bg-[#0c120e] text-[#e7efe9] text-xs py-1.5 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping" />
-            <span className="text-slate-300 hidden sm:inline">24/7 Acute Ocular Emergency Care:</span>
-            <span className="text-rose-400 font-bold">Press 1 for On-Call Doctor</span>
+            <span className="w-2 h-2 rounded-full bg-[#cb6336] animate-ping" />
+            <span className="text-[#c1d1c4] hidden sm:inline">24/7 Acute Eye Emergency Care:</span>
+            <span className="text-white font-bold">On-Call Doctor Available</span>
           </div>
-          <div className="flex items-center gap-4 text-slate-300">
+          <div className="flex items-center gap-4 text-[#c1d1c4]">
             <span className="hidden md:inline">Wyomissing • Douglassville • Myerstown</span>
-            <a href="tel:6103743134" className="text-white hover:text-indigo-300 font-bold underline">
+            <a href="tel:6103743134" className="text-white hover:text-[#eda68d] font-bold underline">
               (610) 374-3134
             </a>
           </div>
@@ -87,40 +84,36 @@ export default function Navbar({ onOpenWizard, currentPage = 'home', onNavigate,
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Logo & Brand (Spectrum-style organic wave glyph + bold modern typography) */}
+        {/* Logo & Brand (Botanical circular leaf/eye emblem like template logo) */}
         <button 
           onClick={(e) => handleNavClick(e, '#')} 
-          className="flex items-center gap-3.5 group text-left"
+          className="flex items-center gap-3 group text-left"
           aria-label="Wyomissing Optometric Center Home"
         >
-          {/* Custom Optical Spectrum Logo Icon */}
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl spectrum-gradient p-0.5 shadow-md group-hover:scale-105 transition-transform flex items-center justify-center">
-            <div className="w-full h-full bg-[#0b0f19] dark:bg-[#090d16] rounded-[14px] flex items-center justify-center">
-              {/* Organic wave optical glyph */}
-              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M3 14c2-4 4-7 7-7s5 8 8 5 3-4 3-4" />
-                <circle cx="12" cy="12" r="2.5" fill="currentColor" />
-              </svg>
-            </div>
+          <div className="w-10 h-10 rounded-full bg-[#6c8572] text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v18M3 12c4-4 8-4 12 0s8 4 12 0" />
+              <circle cx="12" cy="12" r="2.5" fill="currentColor" />
+            </svg>
           </div>
 
           <div className="flex flex-col">
-            <span className="font-heading text-lg sm:text-2xl font-black tracking-tight text-[#0b0f19] dark:text-white leading-tight">
-              wyomissing<span className="text-indigo-600 dark:text-indigo-400">.opto</span>
+            <span className="font-heading text-lg sm:text-xl font-bold tracking-tight text-[#1f2b22] dark:text-white leading-tight">
+              Wyomissing Optometric
             </span>
-            <span className="text-[11px] tracking-wide text-slate-500 dark:text-slate-400 font-semibold uppercase">
-              Optometric Center • Est. 1980
+            <span className="text-[11px] tracking-wide text-[#5a7260] dark:text-[#a7c1ab] font-medium">
+              advanced vision care • est. 1980
             </span>
           </div>
         </button>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center space-x-6" aria-label="Main Navigation">
+        <nav className="hidden lg:flex items-center space-x-7" aria-label="Main Navigation">
           {navLinks.map((link) => (
             <button
               key={link.name}
               onClick={(e) => handleNavClick(e, link.target)}
-              className="text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              className="text-sm font-semibold text-[#2b3d30] dark:text-[#d3ded5] hover:text-[#cb6336] dark:hover:text-[#eda68d] transition-colors"
             >
               {link.name}
             </button>
@@ -134,26 +127,26 @@ export default function Navbar({ onOpenWizard, currentPage = 'home', onNavigate,
             <button
               type="button"
               onClick={() => setLocationDropdownOpen(!locationDropdownOpen)}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 transition"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold text-[#2b3d30] dark:text-white hover:bg-[#e7e1d6] dark:hover:bg-[#1a251e] border border-[#d8d1c4] dark:border-[#2b3b30] transition"
               aria-expanded={locationDropdownOpen}
             >
-              <PhoneIcon className="w-3.5 h-3.5 text-indigo-600" />
-              <span>Call Offices</span>
-              <ChevronDownIcon className="w-3.5 h-3.5" />
+              <PhoneIcon className="w-3.5 h-3.5 text-[#5a7260]" />
+              <span>Offices</span>
+              <ChevronDownIcon className="w-3 h-3" />
             </button>
 
             {locationDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 p-2.5 z-50 animate-in fade-in slide-in-from-top-2">
-                <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2 py-1">Direct Dial Locations</p>
+              <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-[#17201a] rounded-2xl shadow-xl border border-[#e4ded4] dark:border-[#253229] p-2.5 z-50 animate-in fade-in slide-in-from-top-2">
+                <p className="text-[10px] font-bold text-[#7a8f80] uppercase tracking-wider px-2 py-1">Direct Dial Locations</p>
                 {BUSINESS_INFO.locations.map(loc => (
                   <a
                     key={loc.id}
                     href={`tel:${loc.phone.replace(/[^0-9]/g, '')}`}
-                    className="flex flex-col p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-left"
+                    className="flex flex-col p-2 rounded-xl hover:bg-[#f4f1ea] dark:hover:bg-[#202b23] transition text-left"
                     onClick={() => setLocationDropdownOpen(false)}
                   >
-                    <span className="font-bold text-xs text-slate-900 dark:text-white">{loc.name}</span>
-                    <span className="text-xs text-indigo-600 dark:text-indigo-400 font-semibold">{loc.phone}</span>
+                    <span className="font-bold text-xs text-[#1f2b22] dark:text-white">{loc.name}</span>
+                    <span className="text-xs text-[#cb6336] font-semibold">{loc.phone}</span>
                   </a>
                 ))}
               </div>
@@ -164,23 +157,23 @@ export default function Navbar({ onOpenWizard, currentPage = 'home', onNavigate,
           <button
             type="button"
             onClick={onToggleDarkMode}
-            className="p-2.5 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-indigo-400 transition cursor-pointer shadow-sm active:scale-95"
-            aria-label={darkMode ? "Switch to light mode" : "Switch to midnight mode"}
+            className="p-2.5 rounded-full border border-[#d8d1c4] dark:border-[#2b3b30] bg-white dark:bg-[#17201a] text-[#2b3d30] dark:text-white hover:border-[#6c8572] transition cursor-pointer shadow-sm active:scale-95"
+            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
           >
             {darkMode ? (
               <SunIcon className="w-4 h-4 text-amber-400" />
             ) : (
-              <MoonIcon className="w-4 h-4 text-slate-700" />
+              <MoonIcon className="w-4 h-4 text-[#38473c]" />
             )}
           </button>
 
-          {/* Primary Action Button */}
+          {/* Terracotta Primary Action Button (Matching Template Button) */}
           <button
             onClick={() => onOpenWizard()}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0b0f19] hover:bg-indigo-950 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-[#0b0f19] font-bold text-sm transition-all shadow-sm active:scale-95 group"
+            className="btn-terracotta px-5 py-2.5 text-sm flex items-center gap-2"
             aria-label="Book an Appointment"
           >
-            <CalendarIcon className="w-4 h-4 text-current" />
+            <CalendarIcon className="w-4 h-4 text-white" />
             <span>Book Exam</span>
           </button>
         </div>
@@ -190,22 +183,22 @@ export default function Navbar({ onOpenWizard, currentPage = 'home', onNavigate,
           <button
             type="button"
             onClick={onToggleDarkMode}
-            className="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300"
+            className="p-2 rounded-full border border-[#d8d1c4] dark:border-[#2b3b30] bg-white dark:bg-[#17201a] text-[#2b3d30] dark:text-white"
             aria-label="Toggle theme"
           >
-            {darkMode ? <SunIcon className="w-4 h-4 text-amber-400" /> : <MoonIcon className="w-4 h-4 text-slate-700" />}
+            {darkMode ? <SunIcon className="w-4 h-4 text-amber-400" /> : <MoonIcon className="w-4 h-4 text-[#38473c]" />}
           </button>
 
           <button
             onClick={() => onOpenWizard()}
-            className="px-3.5 py-2 rounded-full bg-[#0b0f19] dark:bg-white text-white dark:text-[#0b0f19] text-xs font-bold shadow-sm"
+            className="btn-terracotta px-3.5 py-2 text-xs"
           >
             Book
           </button>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900"
+            className="p-2 rounded-xl text-[#2b3d30] dark:text-white hover:bg-black/5"
             aria-label="Toggle mobile menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -216,33 +209,33 @@ export default function Navbar({ onOpenWizard, currentPage = 'home', onNavigate,
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <nav className="lg:hidden bg-white dark:bg-[#090d16] border-b border-slate-200 dark:border-slate-800 px-5 pt-3 pb-6 space-y-2 shadow-2xl">
+        <nav className="lg:hidden bg-[#f4f1ea] dark:bg-[#111713] border-b border-[#e4ded4] dark:border-[#233027] px-5 pt-3 pb-6 space-y-2 shadow-xl">
           {navLinks.map((link) => (
             <button
               key={link.name}
               onClick={(e) => handleNavClick(e, link.target)}
-              className="w-full text-left px-3.5 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-900 transition"
+              className="w-full text-left px-3.5 py-3 rounded-xl text-base font-semibold text-[#1f2b22] dark:text-white hover:bg-[#eae5dc] dark:hover:bg-[#1a251e] transition"
             >
               {link.name}
             </button>
           ))}
 
-          <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-2.5">
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider px-1">Call Our Offices:</p>
+          <div className="pt-4 border-t border-[#e4ded4] dark:border-[#233027] space-y-2.5">
+            <p className="text-xs font-bold text-[#6c8572] uppercase tracking-wider px-1">Call Our Offices:</p>
             {BUSINESS_INFO.locations.map(loc => (
               <a
                 key={loc.id}
                 href={`tel:${loc.phone.replace(/[^0-9]/g, '')}`}
-                className="flex items-center justify-between px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm"
+                className="flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-[#17201a] border border-[#e4ded4] dark:border-[#253229] text-sm"
               >
-                <span className="font-semibold text-slate-800 dark:text-slate-200">{loc.name}</span>
-                <span className="text-indigo-600 dark:text-indigo-400 font-bold">{loc.phone}</span>
+                <span className="font-semibold text-[#1f2b22] dark:text-white">{loc.name}</span>
+                <span className="text-[#cb6336] font-bold">{loc.phone}</span>
               </a>
             ))}
 
             <button
               onClick={() => { setMobileMenuOpen(false); onOpenWizard(); }}
-              className="w-full mt-2 py-3 rounded-full bg-[#0b0f19] dark:bg-white text-white dark:text-[#0b0f19] font-bold text-sm shadow-md"
+              className="btn-terracotta w-full mt-2 py-3 text-sm"
             >
               Schedule Eye Exam Online
             </button>

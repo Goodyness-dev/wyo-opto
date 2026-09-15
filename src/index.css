@@ -9,51 +9,68 @@
   
   html.dark {
     color-scheme: dark;
-    background-color: #090d16 !important;
+    background-color: #111713 !important;
   }
 
   body {
-    @apply bg-[#f4f6fe] text-[#0b0f19] antialiased overflow-x-hidden transition-colors duration-200;
+    @apply bg-[#f4f1ea] text-[#1f2b22] antialiased overflow-x-hidden transition-colors duration-200;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   html.dark body {
-    background-color: #090d16 !important;
-    color: #f1f5f9 !important;
+    background-color: #111713 !important;
+    color: #f1f5f2 !important;
   }
 
-  /* Clean tactile scrollbar */
+  /* Custom organic scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: #eae5dc;
   }
   html.dark ::-webkit-scrollbar-track {
-    background: #090d16;
+    background: #111713;
   }
   ::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
+    background: #86a68b;
+    border-radius: 9999px;
   }
   html.dark ::-webkit-scrollbar-thumb {
-    background: #1e293b;
+    background: #38473c;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-  }
-  html.dark ::-webkit-scrollbar-thumb:hover {
-    background: #334155;
+    background: #6c8572;
   }
 }
 
 @layer components {
   /* Thick & Alive tactile cards */
   .card-thick {
-    @apply bg-white dark:bg-[#101522] border-2 border-slate-200/90 dark:border-slate-800/90 rounded-3xl shadow-thick dark:shadow-thick-dark transition-all duration-300;
+    @apply bg-white dark:bg-[#17201a] border-2 border-[#e6dfd3] dark:border-[#253229] rounded-[32px] shadow-thick dark:shadow-thick-dark transition-all duration-300;
   }
 
   .card-thick-hover {
-    @apply bg-white dark:bg-[#101522] border-2 border-slate-200/90 dark:border-slate-800/90 rounded-3xl shadow-thick dark:shadow-thick-dark hover:shadow-thick-hover hover:-translate-y-1.5 hover:border-indigo-300 dark:hover:border-indigo-500/50 transition-all duration-300;
+    @apply bg-white dark:bg-[#17201a] border-2 border-[#e6dfd3] dark:border-[#253229] rounded-[32px] shadow-thick dark:shadow-thick-dark hover:shadow-thick-hover hover:-translate-y-1 hover:border-[#6c8572] dark:hover:border-[#86a68b] transition-all duration-300;
+  }
+
+  /* Sage feature container card (Template Hero / Section card) */
+  .card-sage {
+    @apply bg-[#6c8572] text-white rounded-[40px] shadow-thick relative overflow-hidden;
+  }
+
+  /* Terracotta Action Buttons */
+  .btn-terracotta {
+    @apply bg-[#cb6336] hover:bg-[#b9552b] text-white font-bold rounded-full transition-all duration-200 shadow-md hover:shadow-lg active:scale-95;
+  }
+
+  .btn-sage {
+    @apply bg-[#5a7260] hover:bg-[#485a4d] text-white font-bold rounded-full transition-all duration-200 shadow-md hover:shadow-lg active:scale-95;
+  }
+
+  /* Circular Medallion (Template Popular Items) */
+  .medallion-white {
+    @apply w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-white shadow-md flex items-center justify-center overflow-hidden border-4 border-white/60 mx-auto;
   }
 
   /* Shimmer button reflection */
@@ -68,35 +85,12 @@
     left: -100%;
     width: 60%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
     transform: skewX(-20deg);
-    transition: none;
   }
   .btn-shimmer:hover::before {
     left: 140%;
     transition: left 0.85s ease-in-out;
-  }
-
-  /* Spectrum Wave Gradient Accent */
-  .spectrum-gradient {
-    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 35%, #ec4899 70%, #f43f5e 100%);
-    background-size: 200% 200%;
-  }
-
-  .spectrum-gradient-soft {
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(124, 58, 237, 0.08) 50%, rgba(244, 63, 94, 0.08) 100%);
-  }
-
-  .spectrum-text-gradient {
-    background: linear-gradient(135deg, #1d4ed8 0%, #6d28d9 45%, #db2777 85%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .dark .spectrum-text-gradient {
-    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 45%, #f472b6 85%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 
   /* Image zoom container */
