@@ -34,12 +34,12 @@ export default function AllServicesPage({ onOpenWizard, onBackToHome }) {
 
   const getServiceIcon = (iconName) => {
     switch(iconName) {
-      case 'EyeIcon': return <EyeIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />;
-      case 'GlassesIcon': return <GlassesIcon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />;
-      case 'SparklesIcon': return <SparklesIcon className="w-6 h-6 text-amber-500" />;
-      case 'AlertCircleIcon': return <AlertCircleIcon className="w-6 h-6 text-rose-600 dark:text-rose-400" />;
-      case 'HeartPulseIcon': return <HeartPulseIcon className="w-6 h-6 text-pink-600 dark:text-pink-400" />;
-      default: return <ShieldCheckIcon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />;
+      case 'EyeIcon': return <EyeIcon className="w-5 h-5 text-blue-600 dark:text-blue-400" />;
+      case 'GlassesIcon': return <GlassesIcon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />;
+      case 'SparklesIcon': return <SparklesIcon className="w-5 h-5 text-amber-500" />;
+      case 'AlertCircleIcon': return <AlertCircleIcon className="w-5 h-5 text-rose-600 dark:text-rose-400" />;
+      case 'HeartPulseIcon': return <HeartPulseIcon className="w-5 h-5 text-pink-600 dark:text-pink-400" />;
+      default: return <ShieldCheckIcon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />;
     }
   };
 
@@ -50,9 +50,11 @@ export default function AllServicesPage({ onOpenWizard, onBackToHome }) {
         {/* Back navigation */}
         <button
           onClick={onBackToHome}
-          className="inline-flex items-center gap-2 text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 mb-8 transition"
+          className="inline-flex items-center gap-2 text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 mb-8 transition group"
         >
-          <ArrowLeftIcon className="w-4 h-4" />
+          <div className="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center group-hover:-translate-x-1 transition-transform">
+            <ArrowLeftIcon className="w-4 h-4" />
+          </div>
           <span>Back to Home</span>
         </button>
 
@@ -92,7 +94,7 @@ export default function AllServicesPage({ onOpenWizard, onBackToHome }) {
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
                     selectedCategory === cat
-                      ? 'bg-[#0b0f19] dark:bg-white text-white dark:text-[#0b0f19] shadow-sm'
+                      ? 'bg-[#0b0f19] dark:bg-white text-white dark:text-[#0b0f19] shadow-sm scale-105'
                       : 'bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 hover:bg-slate-200'
                   }`}
                 >
@@ -108,45 +110,60 @@ export default function AllServicesPage({ onOpenWizard, onBackToHome }) {
           {filteredServices.map(service => (
             <article
               key={service.id}
-              className="card-thick-hover p-7 sm:p-8 flex flex-col justify-between cursor-pointer"
+              className="card-thick-hover flex flex-col justify-between cursor-pointer overflow-hidden group"
               onClick={() => onOpenWizard(service.category, service.title)}
             >
               <div>
-                <div className="flex items-center justify-between gap-3 mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
-                    {getServiceIcon(service.icon)}
+                {/* Visual Image Header */}
+                {service.image && (
+                  <div className="relative h-44 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
+                    
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                      <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/90 dark:bg-black/80 backdrop-blur text-slate-900 dark:text-white shadow-sm border border-white/20">
+                        {service.badge}
+                      </span>
+                      <div className="w-8 h-8 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur border border-white/20 flex items-center justify-center shadow-sm">
+                        {getServiceIcon(service.icon)}
+                      </div>
+                    </div>
                   </div>
-                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-indigo-50/80 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300">
-                    {service.badge}
-                  </span>
-                </div>
+                )}
 
-                <h2 className="text-xl font-bold font-heading text-slate-900 dark:text-white mb-2.5">
-                  {service.title}
-                </h2>
+                <div className="p-6">
+                  <h2 className="text-xl font-bold font-heading text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors mb-2.5">
+                    {service.title}
+                  </h2>
 
-                <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-5">
-                  {service.shortDesc}
-                </p>
-
-                <div className="bg-slate-50 dark:bg-slate-900/50 p-3.5 rounded-2xl border border-slate-100 dark:border-slate-800 mb-5">
-                  <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Ideal Candidates:</p>
-                  <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
-                    {service.idealFor}
+                  <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                    {service.shortDesc}
                   </p>
-                </div>
 
-                <ul className="space-y-2 mb-6">
-                  {service.keyBenefits.map((benefit, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
-                      <CheckIcon className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                      <span>{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <div className="bg-slate-50 dark:bg-slate-900/50 p-3 rounded-2xl border border-slate-100 dark:border-slate-800 mb-4">
+                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">Ideal Candidates:</p>
+                    <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                      {service.idealFor}
+                    </p>
+                  </div>
+
+                  <ul className="space-y-1.5 mb-4">
+                    {service.keyBenefits.slice(0, 3).map((benefit, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
+                        <CheckIcon className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold">
+              <div className="px-6 pb-6 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold">
                 <span className="flex items-center gap-1.5 text-slate-500">
                   <ClockIcon className="w-4 h-4" />
                   {service.duration}
@@ -157,7 +174,7 @@ export default function AllServicesPage({ onOpenWizard, onBackToHome }) {
                     e.stopPropagation();
                     onOpenWizard(service.category, service.title);
                   }}
-                  className="px-4 py-2 rounded-full bg-[#0b0f19] dark:bg-white text-white dark:text-[#0b0f19] hover:opacity-90 transition flex items-center gap-1"
+                  className="btn-shimmer px-4 py-2 rounded-full bg-[#0b0f19] dark:bg-white text-white dark:text-[#0b0f19] hover:opacity-90 transition flex items-center gap-1.5 shadow-sm"
                 >
                   <span>Book Visit</span>
                   <ArrowRightIcon className="w-3.5 h-3.5" />
@@ -178,14 +195,14 @@ export default function AllServicesPage({ onOpenWizard, onBackToHome }) {
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <a
               href="tel:6103743134"
-              className="px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-2"
+              className="btn-shimmer px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-md"
             >
               <PhoneIcon className="w-4 h-4" />
               <span>Call (610) 374-3134</span>
             </a>
             <button
               onClick={() => onOpenWizard()}
-              className="px-6 py-3 rounded-full bg-[#0b0f19] dark:bg-white text-white dark:text-[#0b0f19] font-bold text-xs"
+              className="btn-shimmer px-6 py-3 rounded-full bg-[#0b0f19] dark:bg-white text-white dark:text-[#0b0f19] font-bold text-xs shadow-md"
             >
               General Appointment Request
             </button>

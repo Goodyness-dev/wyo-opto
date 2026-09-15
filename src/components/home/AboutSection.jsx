@@ -1,9 +1,28 @@
 import React from 'react';
 import { DOCTORS } from '../../data/doctorsData';
 import { BUSINESS_INFO } from '../../data/businessData';
-import { AwardIcon, ShieldCheckIcon, QuoteIcon, ArrowRightIcon, CheckIcon } from '../common/Icons';
+import { IMAGES } from '../../data/imageManifest';
+import { AwardIcon, ShieldCheckIcon, QuoteIcon, ArrowRightIcon, CheckIcon, EyeIcon } from '../common/Icons';
 
 export default function AboutSection({ onOpenWizard }) {
+  const PRACTICE_HIGHLIGHTS = [
+    {
+      img: IMAGES.exam.src,
+      title: "Pediatric & Comprehensive Care",
+      desc: "Gentle, non-invasive exams with advanced computerized retinoscopy."
+    },
+    {
+      img: IMAGES.laser.src,
+      title: "Co-Management Surgical Suite",
+      desc: "Pre- and post-op care collaborating with top regional ophthalmic surgeons."
+    },
+    {
+      img: IMAGES.eyewearBoutique.src,
+      title: "Over 1,200 Designer Frames",
+      desc: "Curated luxury frames and custom digital progressive lens crafting."
+    }
+  ];
+
   return (
     <section id="doctors" className="py-20 sm:py-28 bg-white dark:bg-[#0d121e] transition-colors" aria-labelledby="doctors-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,14 +60,14 @@ export default function AboutSection({ onOpenWizard }) {
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none" />
                   <span className="absolute bottom-3 left-3 bg-white/95 dark:bg-slate-900/95 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-slate-900 dark:text-white shadow-sm">
                     {doc.experience} Experience
                   </span>
                 </div>
 
                 {/* Name & Title */}
-                <h3 className="font-heading font-bold text-lg sm:text-xl text-slate-900 dark:text-white mb-1">
+                <h3 className="font-heading font-bold text-lg sm:text-xl text-slate-900 dark:text-white mb-1 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                   {doc.name}
                 </h3>
                 <p className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-3">
@@ -90,7 +109,7 @@ export default function AboutSection({ onOpenWizard }) {
         </div>
 
         {/* Practice Heritage Split Highlight */}
-        <div className="card-thick p-8 sm:p-12 lg:p-14 relative overflow-hidden bg-gradient-to-r from-indigo-50/50 via-white to-blue-50/50 dark:from-[#111728] dark:via-[#101522] dark:to-[#111728]">
+        <div className="card-thick p-8 sm:p-12 lg:p-14 relative overflow-hidden bg-gradient-to-r from-indigo-50/50 via-white to-blue-50/50 dark:from-[#111728] dark:via-[#101522] dark:to-[#111728] mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-7 space-y-5">
@@ -152,13 +171,49 @@ export default function AboutSection({ onOpenWizard }) {
 
                 <button
                   onClick={() => onOpenWizard()}
-                  className="w-full mt-4 py-3 rounded-xl bg-[#0b0f19] dark:bg-white text-white dark:text-[#0b0f19] font-bold text-xs transition shadow active:scale-95"
+                  className="btn-shimmer w-full mt-4 py-3 rounded-xl bg-[#0b0f19] dark:bg-white text-white dark:text-[#0b0f19] font-bold text-xs transition shadow active:scale-95"
                 >
                   Schedule Initial Consultation
                 </button>
               </div>
             </div>
 
+          </div>
+        </div>
+
+        {/* Clinical Facility & Optical Showcase Cards */}
+        <div>
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold font-heading text-slate-900 dark:text-white">
+              Behind the Scenes of Our Practice
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+              Precision instrumentation, compassionate diagnostics, and bespoke optical craftsmanship.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {PRACTICE_HIGHLIGHTS.map((item, idx) => (
+              <div key={idx} className="card-thick-hover overflow-hidden group">
+                <div className="relative h-48 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+                  <img 
+                    src={item.img} 
+                    alt={item.title} 
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <p className="text-white font-bold text-base">{item.title}</p>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

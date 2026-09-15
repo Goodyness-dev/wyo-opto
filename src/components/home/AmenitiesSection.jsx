@@ -1,5 +1,6 @@
 import React from 'react';
 import { AMENITIES } from '../../data/amenitiesData';
+import { IMAGES } from '../../data/imageManifest';
 import { 
   MicroscopeIcon, 
   AlertCircleIcon, 
@@ -7,7 +8,8 @@ import {
   ShieldCheckIcon, 
   GlassesIcon, 
   SparklesIcon, 
-  CheckIcon 
+  CheckIcon,
+  ArrowRightIcon
 } from '../common/Icons';
 
 export default function AmenitiesSection({ onOpenWizard }) {
@@ -20,6 +22,13 @@ export default function AmenitiesSection({ onOpenWizard }) {
       case 'GlassesIcon': return <GlassesIcon className="w-6 h-6 text-purple-600 dark:text-purple-400" />;
       default: return <SparklesIcon className="w-6 h-6 text-amber-500" />;
     }
+  };
+
+  const AMENITY_IMAGE_MAP = {
+    'diagnostic-tech': IMAGES.laser.src,
+    'optical-boutique': IMAGES.eyewearBoutique.src,
+    'emergency-triage': IMAGES.hero.src,
+    'patient-comfort': IMAGES.precisionGlasses.src,
   };
 
   return (
@@ -43,30 +52,64 @@ export default function AmenitiesSection({ onOpenWizard }) {
           </p>
         </div>
 
-        {/* Features 6-Card Grid */}
+        {/* Features Bento Grid with Visual Media */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
-          {AMENITIES.features.map((feat) => (
-            <div 
-              key={feat.id} 
-              className="card-thick-hover p-7 sm:p-8 flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex items-center justify-center mb-5">
-                  {getIcon(feat.icon)}
+          {AMENITIES.features.map((feat) => {
+            const featImg = AMENITY_IMAGE_MAP[feat.id];
+            return (
+              <div 
+                key={feat.id} 
+                className="card-thick-hover flex flex-col justify-between overflow-hidden group"
+              >
+                <div>
+                  {featImg && (
+                    <div className="relative h-44 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+                      <img 
+                        src={featImg} 
+                        alt={feat.title}
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute top-3 left-3 w-10 h-10 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur border border-white/20 flex items-center justify-center shadow-md">
+                        {getIcon(feat.icon)}
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="p-7 sm:p-8">
+                    {!featImg && (
+                      <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        {getIcon(feat.icon)}
+                      </div>
+                    )}
+                    <h3 className="font-heading font-bold text-xl text-slate-900 dark:text-white mb-2.5 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                      {feat.title}
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                      {feat.description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="font-heading font-bold text-xl text-slate-900 dark:text-white mb-2.5">
-                  {feat.title}
-                </h3>
-                <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  {feat.description}
-                </p>
+
+                <div className="px-7 pb-6 pt-0">
+                  <button 
+                    onClick={() => onOpenWizard('Amenity Inquiry', feat.title)}
+                    className="text-xs font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5 group-hover:translate-x-1 transition-transform"
+                  >
+                    <span>Learn more</span>
+                    <ArrowRightIcon className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Insurance & Direct Billing Banner */}
-        <div className="card-thick p-8 sm:p-12 bg-white dark:bg-[#101522] border-2 border-indigo-100 dark:border-slate-800">
+        <div className="card-thick p-8 sm:p-12 bg-white dark:bg-[#101522] border-2 border-indigo-100 dark:border-slate-800 relative overflow-hidden">
+          <div className="absolute -top-12 -right-12 w-64 h-64 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none" />
+          
           <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
             <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white">
               Direct Insurance Verification & Financing
@@ -80,7 +123,7 @@ export default function AmenitiesSection({ onOpenWizard }) {
             {AMENITIES.insurancePlans.map((plan, idx) => (
               <div 
                 key={idx}
-                className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 flex items-center gap-2 text-xs font-semibold text-slate-800 dark:text-slate-200"
+                className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 flex items-center gap-2 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:border-indigo-300 transition"
               >
                 <CheckIcon className="w-4 h-4 text-emerald-500 shrink-0" />
                 <span className="truncate">{plan}</span>
@@ -91,7 +134,7 @@ export default function AmenitiesSection({ onOpenWizard }) {
           <div className="text-center pt-2">
             <button
               onClick={() => onOpenWizard('Insurance Check')}
-              className="px-7 py-3.5 rounded-full bg-[#0b0f19] hover:bg-indigo-950 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-[#0b0f19] font-bold text-sm shadow-md transition active:scale-95"
+              className="btn-shimmer px-7 py-3.5 rounded-full bg-[#0b0f19] hover:bg-indigo-950 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-[#0b0f19] font-bold text-sm shadow-md transition active:scale-95"
             >
               Verify Your Vision Benefits Online
             </button>
